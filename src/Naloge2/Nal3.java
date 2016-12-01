@@ -22,7 +22,7 @@ public class Nal3 {
 	public static void getAdd(int a, int b, int n) {
 		while(a <= b) {
 			if(sumDigits(a) == n)
-				System.out.println("Vsota števk števila "+a+" je enaka "+n);
+				System.out.println("Vsota Å¡tevk Å¡tevila "+a+" je enaka "+n);
 			a++;
 		}
 	}

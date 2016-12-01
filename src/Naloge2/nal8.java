@@ -1,3 +1,5 @@
+package Naloge2;
+
 import java.util.*;
 
 public class nal8 {
