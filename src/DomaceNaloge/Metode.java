@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Metode {
     public static void vnesiNiz() {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Prosim, vnesite poljubni niz. (Vsebovati mora samo angleske crke, brez presledkov!");
         String niz = scanner.nextLine();
         scanner.close();
 
@@ -22,25 +23,17 @@ public class Metode {
         String dekodirano = "";
         for (int i = 0; i < niz.length(); i += 2) {
             String koda = niz.substring(i,i+2);
-            if(koda.charAt(0) == '0') {
-                dekodirano += (char)(Character.getNumericValue(koda.charAt(1))+96);
-            } else {
-                dekodirano += (char)(Integer.valueOf(koda)+96);
-            }
+            dekodirano += (char)(Integer.valueOf(koda)+96);
         }
         return dekodirano;
     }
 
     public static void preveri(String niz) {
-        boolean izhod = false;
         for (int i = 0; i < niz.length(); i++) {
-            if(niz.charAt(i) == ' ' || ((int)niz.charAt(i) >= 65 && (int)niz.charAt(i) <= 90)) {
-                izhod = true;
+            if(niz.charAt(i) == ' ' || ((int)Character.toLowerCase(niz.charAt(i)) < 97 || (int)Character.toLowerCase(niz.charAt(i)) > 122)) {
+                System.out.println("Niz mora imeti samo angleske crke in brez presledkov!");
+                System.exit(0);
             }
-        }
-        if(izhod) {
-            System.out.println("Niz mora imeti samo angleske crke!");
-            System.exit(0);
         }
     }
 }
